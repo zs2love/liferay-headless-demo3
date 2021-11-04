@@ -1,0 +1,11 @@
+{
+    "status": "success",
+    "posts":[
+        {   "id": "12122", 
+            "title": "First Post", 
+            "content": "Hello! "},
+        {   "id": "aa2",
+            "title": "Second Post", 
+            "content": "More text"}
+    ]
+}
