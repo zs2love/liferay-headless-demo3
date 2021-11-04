@@ -1,0 +1,6 @@
+Bundle-Name: liferay-headless-dem-api
+Bundle-SymbolicName: com.liferay.rest.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.liferay.rest.dto.v1_0,\
+	com.liferay.rest.resource.v1_0

@@ -1,0 +1,202 @@
+info:
+    description:
+        "LiferayHeadlessDem REST API. A Java client JAR is available for use with the group ID 'com.liferay', artifact
+        ID 'com.liferay.rest.client', and version '1.0.0'."
+    license:
+        name: "Apache 2.0"
+        url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+    title: "LiferayHeadlessDem"
+    version: v1.0
+openapi: 3.0.1
+
+components:
+    schemas:
+        FooVo:
+            description: the foo vo.
+            properties:
+                fooVoId:
+                    description: the foo id of the entity.
+                    format: int64
+                    type: integer
+                gender:
+                    description: the gender of the entity.
+                    type: string
+                fileName:
+                    description: the fileName of the entity.
+                    type: string
+                age:
+                    description: the age of the entity.
+                    format: int64
+                    type: integer
+                fileEntryId:
+                    description: the file entry id of the entity.
+                    format: int64
+                    type: integer
+                name:
+                    description: the name of the entity.
+                    type: string
+paths:
+    "/fooVos":
+        get:
+            operationId: getFoosPage
+            tags: [ "FooVo" ]
+            parameters:
+                - in: query
+                  name: filter
+                  schema:
+                      type: string
+                - in: query
+                  name: page
+                  schema:
+                      type: integer
+                - in: query
+                  name: pageSize
+                  schema:
+                      type: integer
+                - in: query
+                  name: search
+                  schema:
+                      type: string
+                - in: query
+                  name: sort
+                  schema:
+                      type: string
+            responses:
+                200:
+                    description: "Returns a list of foos matching the search criteria"
+                    content:
+                        application/json:
+                            schema:
+                                items:
+                                    $ref: "#/components/schemas/FooVo"
+                                type: array
+                        application/xml:
+                            schema:
+                                items:
+                                    $ref: "#/components/schemas/FooVo"
+                                type: array
+        post:
+            operationId: postFoosVo
+            tags: [ "FooVo" ]
+            description: Creates a new Foo.
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/FooVo"
+                    application/xml:
+                        schema:
+                            $ref: "#/components/schemas/FooVo"
+            responses:
+                200:
+                    description: ""
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/FooVo"
+                        application/xml:
+                            schema:
+                                $ref: "#/components/schemas/FooVo"
+    "/foos/{fooVoId}":
+        get:
+            operationId: getFoo
+            tags: [ "FooVo" ]
+            parameters:
+                - in: path
+                  name: fooVoId
+                  required: true
+                  schema:
+                      format: int64
+                      type: integer
+            responses:
+                200:
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/FooVo"
+                        application/xml:
+                            schema:
+                                $ref: "#/components/schemas/FooVo"
+                    description: ""
+        delete:
+            description:
+                delete foo
+            operationId: deleteFoo
+            parameters:
+                - in: path
+                  name: fooVoId
+                  required: true
+                  schema:
+                      format: int64
+                      type: integer
+            responses:
+                204:
+                    content:
+                        application/json: { }
+                        application/xml: { }
+                    description:
+                        ""
+            tags: [ "FooVo" ]
+        put:
+            description:
+                modified foo info
+            operationId: putFooVo
+            parameters:
+                - in: path
+                  name: fooVoId
+                  required: true
+                  schema:
+                      format: int64
+                      type: integer
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/FooVo"
+                    application/xml:
+                        schema:
+                            $ref: "#/components/schemas/FooVo"
+            responses:
+                200:
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/FooVo"
+                        application/xml:
+                            schema:
+                                $ref: "#/components/schemas/FooVo"
+                    description:
+                        ""
+            tags: [ "FooVo" ]
+    "/foos/{fooVoId}/addFile":
+        post:
+            operationId: postFoosDocument
+            parameters:
+                - in: path
+                  name: fooVoId
+                  required: true
+                  schema:
+                      format: int64
+                      type: integer
+            tags: [ "FooVo" ]
+            description: Create new foo document.
+            requestBody:
+                content:
+                    multipart/form-data:
+                        schema:
+                            properties:
+                                file:
+                                    format: binary
+                                    type: string
+                            type: object
+            responses:
+                200:
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/FooVo"
+                        application/xml:
+                            schema:
+                                $ref: "#/components/schemas/FooVo"
+                    description:
+                        ""

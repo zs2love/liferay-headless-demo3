@@ -1,0 +1,9 @@
+apiDir: "../liferay-headless-dem-api/src/main/java"
+apiPackagePath: "com.liferay.rest"
+application:
+    baseURI: "/liferay-headless-dem"
+    className: "LiferayHeadlessDemApplication"
+    name: "LiferayHeadlessDem"
+author: "shuai.b.zhang"
+clientDir: "../liferay-headless-dem-client/src/main/java"
+testDir: "../liferay-headless-dem-test/src/testIntegration/java"

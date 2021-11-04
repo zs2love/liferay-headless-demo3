@@ -1,0 +1,3 @@
+Bundle-Name: liferay-headless-dem-impl
+Bundle-SymbolicName: com.liferay.rest.impl
+Bundle-Version: 1.0.0

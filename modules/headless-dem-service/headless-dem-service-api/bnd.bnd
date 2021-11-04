@@ -1,0 +1,10 @@
+Bundle-Name: headless-dem-service-api
+Bundle-SymbolicName: com.liferay.rest.dem.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.liferay.rest.dem.exception,\
+	com.liferay.rest.dem.model,\
+	com.liferay.rest.dem.service,\
+	com.liferay.rest.dem.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../headless-dem-service-service/service.xml

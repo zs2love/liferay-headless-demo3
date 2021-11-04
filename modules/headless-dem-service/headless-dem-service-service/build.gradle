@@ -1,0 +1,11 @@
+dependencies {
+	compile project(":modules:headless-dem-service:headless-dem-service-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+}
+
+buildService {
+	apiDir = "../headless-dem-service-api/src/main/java"
+}
+
+group = "com.liferay.rest.dem"
