@@ -5,7 +5,7 @@ const instance = axios.create({
     baseURL:BASE_URL,
     timeout:TIMEOUT,
     headers: {
-        'Content-Type': 'multipart/form-data'
+        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
     },
 })
 // instance.interceptors.request.use(config => {

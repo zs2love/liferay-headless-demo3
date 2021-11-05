@@ -29,7 +29,10 @@ console.log('initialPost  ')
 console.log(initialPost)
   const formData = new FormData();
   formData.append('open_id_csv',initialPost)
-  const response = await post('https://wechat-sit-cms-dot-gweb-china-test.an.r.appspot.com/upload/openIdCSV', formData)
+  const herder = {
+    'Content-Type': 'multipart/form-data'
+}
+  const response = await post('https://wechat-sit-cms-dot-gweb-china-test.an.r.appspot.com/upload/openIdCSV', formData,herder)
   // The response includes the complete post object, including unique ID
   return response.posts;
 }
