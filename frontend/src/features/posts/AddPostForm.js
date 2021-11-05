@@ -60,10 +60,9 @@ export const AddPostForm = () => {
     <section>
       <h2>添加新帖子</h2>
       <Form {...layout} 
-        labelCol={{ span: 2 }}
-        wrapperCol={{ span: 16 }}>
+       >
         <Form.Item
-          label="title"
+          label="age"
           name="title"
           rules={[{ required: true, message: 'Please input title!' }]} >
           <Input 

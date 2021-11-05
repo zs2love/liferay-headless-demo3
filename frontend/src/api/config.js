@@ -1,13 +1,15 @@
-const devBaseURL = '';
+const devBaseURL = 'http://localhost:8080/o/liferay-headless-dem/v1.0';
 const proBaseURL = '';
 
 
-export const BASE_URL = process.env.NODE_ENV === 'development' ? devBaseURL: proBaseURL;
+export const BASE_URL = devBaseURL;
+// process.env.NODE_ENV === 'development' ? devBaseURL: proBaseURL;
 
 export const TIMEOUT = 5000;
 
 const DEFAULT_APIS = {
-    get_list: "/list",
+    get_list: "/foos/",
+    post_fake:"/fooVos"
 }
 const MOCK_APIS = {
     get_list: '../mock/list.json',

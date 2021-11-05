@@ -3,6 +3,7 @@ import React from 'react';
 import  Home  from './features/home';
 import { PostsList } from './features/posts/PostsList';
 import { AddPostForm } from './features/posts/AddPostForm';
+import { PostAuthor } from './features/posts/PostAuthor'
 import { SinglePostPage } from './features/posts/SinglePostPage';
 import { EditPostForm } from './features/posts/EditPostForm';
 import { UsersPage } from './features/users/UsersPage';

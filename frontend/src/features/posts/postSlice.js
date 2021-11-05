@@ -1,7 +1,7 @@
 import { createSlice, nanoid, createAsyncThunk, createSelector } from '@reduxjs/toolkit'
 
 import { get, post } from '../../api/axios'
-import { getMockEndpoint } from '../../api/config'
+import { getMockEndpoint , getEndpoint} from '../../api/config'
 
 const initialState = {
   posts: [
@@ -10,16 +10,15 @@ const initialState = {
   error: null
 }
 
-export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
+export const fetchPosts = createAsyncThunk('posts/fetchPosts', async (params) => {
 
-  console.log('xslkcs')
   //const response = await client.get('/fakeApi/posts')
-  const response = await get(getMockEndpoint('get_list'))
+  const response = await get(getEndpoint('get_list') + params)
   console.log(response.data)
   return  response.data.posts;
 })
 export const addNewPost = createAsyncThunk('posts/addNewPost', async initialPost => {
-    const response = await post('/fakeApi/posts', { post: initialPost })
+    const response = await post(getEndpoint('post_fake'), initialPost)
     // The response includes the complete post object, including unique ID
     return response.posts;
   }

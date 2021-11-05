@@ -1,19 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-
 import { selectAllPosts, fetchPosts, addFile} from './postSlice'
 import { Upload, message, Button , Card} from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import './post.css';
+import {useLocation} from 'react-router-dom';
 
-export const PostsList = () => {
+import { PostAuthor } from './PostAuthor'
+
+export const PostsList = ({ match }) => {
   const dispatch = useDispatch()
   const posts =  useSelector(selectAllPosts).posts
   const postStatus = useSelector(state => state.posts.status)
+  const location = useLocation();
+  const searchKey = location.state.id;
+
   useEffect(() => {
+    console.log(searchKey)
     if (postStatus === 'idle') {
-      dispatch(fetchPosts())
+      dispatch(fetchPosts(searchKey))
     }
   })
   const [fileList, setFileList] = useState([])
@@ -67,7 +73,7 @@ export const PostsList = () => {
         <Button icon={<UploadOutlined />}>Click to Upload</Button>
       </Upload>
    
-    
+      <PostAuthor />
       {renderedPosts}
     </section>
   )

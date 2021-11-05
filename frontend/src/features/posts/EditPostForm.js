@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,  useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
@@ -21,7 +21,7 @@ export const EditPostForm = ({ match }) => {
   const onSavePostClicked = () => {
     if (title && content) {
       dispatch(postUpdated({ id: postId, title, content }))
-      history.push(`/posts/${postId}`)
+      history.push(`/post/${postId}`)
     }
   }
 

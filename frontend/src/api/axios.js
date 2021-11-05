@@ -20,13 +20,17 @@ const instance = axios.create({
 // },error => {
 //     return error;
 // })
-
+const auth={
+    username: 'test@123.com',
+    password: '123456'
+}
 export const get = (url, params)=>{
     return new Promise((resolve,reject) => {
         instance({
             url:url,
             method:'get',
-            params:params
+            params:params,
+            auth: auth,
         }).then(res => {
             resolve(res);
         }).catch(err => {
@@ -41,7 +45,8 @@ export const post = (url, params ,headers) =>{
             url:url,
             method:'post',
             data:params,
-            headers: headers? headers: {}
+            headers: headers? headers: {},
+            auth: auth
         }).then(res => {
             resolve(res);
         }).catch(err => {
