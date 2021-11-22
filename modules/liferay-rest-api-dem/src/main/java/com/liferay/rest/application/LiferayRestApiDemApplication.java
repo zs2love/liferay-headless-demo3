@@ -16,7 +16,6 @@ import org.osgi.service.jaxrs.whiteboard.JaxrsWhiteboardConstants;
 /**
  * @author shuai.b.zhang
  */
-
 @Component(
     property = {
         JaxrsWhiteboardConstants.JAX_RS_APPLICATION_BASE + "=/greetings",
