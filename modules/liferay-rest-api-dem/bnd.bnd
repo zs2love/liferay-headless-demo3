@@ -1,0 +1,4 @@
+Bundle-Name: liferay-rest-api-dem
+Bundle-SymbolicName: com.liferay.rest
+Bundle-Version: 1.0.0
+Liferay-Configuration-Path: /configuration
