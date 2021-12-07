@@ -9,5 +9,5 @@ module.exports = function (app) {
       "^/api": "/"
     }
   }))
-  app.listen(3000)
+
 }
