@@ -14,4 +14,4 @@ phases:
   post_build:
     commands:
       - echo "Updating the S3 bucket..."
-      - aws s3 sync frontend/build/ s3://react-s3-project --delete
+      - aws s3 sync build/ s3://react-s3-project --delete
