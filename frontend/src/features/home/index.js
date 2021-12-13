@@ -11,7 +11,7 @@ function Home(props) {
     <div className="home">
     <Form  labelCol= {{ span: 2 }}  wrapperCol={{ span: 8 }}>
       <Form.Item
-            label="key"
+            label="key2"
             name="searchKey"
               rules={[{ required: true, message: 'Please input searchKey!' }]} >
         <Input type="searchKey"
