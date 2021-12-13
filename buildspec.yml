@@ -1,0 +1,16 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12
+    commands:
+      - echo "Installing dependencies"
+      - npm install
+  build:
+    commands:
+      - echo "Building the react evnironment."
+      - npm run build
+  post_build:
+    commands:
+      - echo "Updating the S3 bucket..."
+      - aws s3 sync frontend/build/ s3://react-s3-project --delete
